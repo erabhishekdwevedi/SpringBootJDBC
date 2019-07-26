@@ -2,7 +2,7 @@
 <%@page session="false"%>
 <html>
 <head>
-<title>Show Policies</title>
+<title>Policy Finder | Policy List</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -18,56 +18,75 @@
 </head>
 <body>
 <div class="container-fluid">
-	<jsp:include page="policyIndexInquiry.jsp" />
+	<jsp:include page="nav.jsp" />
 
-	<div class="row">
-		<div class="col-md-12">
-			<h3>Policy List</h3>
-		</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<h3>Policy Index Inquiry Screen</h3>
 	</div>
+</div>
 
-	<div class="row section">
-		<div class="col-md-6">
+<div class="row section">
+	<div class="col-md-6">
+	    <p><span id="p_selection" class="badge badge-primary"></span>	</p>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Enter Effective Date</th>
+					<th>Policy Number</th>
 
-			<table class="table table-hover">
-				<thead>
-					<tr>	
-						<th>Enter Effective Date</th>				
-						<th>Policy Number</th>
-						
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="listValue" items="${policies}">
+
+					<tr class="tr_policyrow">
+						<td>${listValue.effectiveDate}</td>
+
+						<td class="td_policyid">${listValue.policyNumber}</td>
 					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="listValue" items="${policies}">
+				</c:forEach>
+			</tbody>
+		</table>
 
-						<tr class="tr_policyrow">
-							<td >${listValue.effectiveDate}</td>
-							
-							<td>${listValue.policyNumber}</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-
-		</div>
 	</div>
-	
-	<div class="row">
-		<div class="col-md-12">
-			<button id="btn_showdetails" class="btn btn-primary" disabled> Show Details</button>
-		</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		
+		<button id="btn_showdetails" class="btn btn-primary" disabled><a id="a_btn_showdetails" class="btn-link" href="/policy?id=12">Show Details</a></button>
+		<button id="btn_add" class="btn btn-primary"><a class="btn-link" href="/addNewPolicy">Add Policy</a></button>
 	</div>
-
-
+</div>
 </div>
 </body>
 </html>
 
 <script>
 
-  $(".tr_policyrow").click(function(){
-    $("#btn_showdetails").removeAttr('disabled');  
-    
-  });
-  
+	$("tr.tr_policyrow").click(function() {
+		
+		var policyId = $(this).find("td.td_policyid").text();
+		var url = "/policy?id="+(policyId);
+		
+		$("#p_selection").text("Selected Policy :"+policyId);
+		
+		
+		$("#btn_showdetails").removeAttr('disabled');
+		$("#a_btn_showdetails").attr('href',url);
+		
+	});
+	
+	$("*:not(.table)").click(function() {
+		
+		console("outside");
+		
+	});
+	
+	
+	
+	
+	
 </script>

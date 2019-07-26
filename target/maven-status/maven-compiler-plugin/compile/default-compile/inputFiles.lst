@@ -1,7 +1,7 @@
-C:\workspace\Policy-Administration\policy-admin-project\src\main\java\policy\admin\service\impl\PolicyServiceImpl.java
-C:\workspace\Policy-Administration\policy-admin-project\src\main\java\policy\admin\service\PolicyService.java
-C:\workspace\Policy-Administration\policy-admin-project\src\main\java\policy\admin\model\Policy.java
-C:\workspace\Policy-Administration\policy-admin-project\src\main\java\policy\admin\controllers\PolicyController.java
-C:\workspace\Policy-Administration\policy-admin-project\src\main\java\policy\admin\dao\impl\PolicyDaoImpl.java
-C:\workspace\Policy-Administration\policy-admin-project\src\main\java\policy\admin\dao\PolicyDao.java
-C:\workspace\Policy-Administration\policy-admin-project\src\main\java\policy\admin\PolicyAdminApplication.java
+/Users/dwevedi/git/SpringBootJDBC/src/main/java/policy/admin/dao/PolicyDao.java
+/Users/dwevedi/git/SpringBootJDBC/src/main/java/policy/admin/controllers/PolicyController.java
+/Users/dwevedi/git/SpringBootJDBC/src/main/java/policy/admin/PolicyAdminApplication.java
+/Users/dwevedi/git/SpringBootJDBC/src/main/java/policy/admin/service/impl/PolicyServiceImpl.java
+/Users/dwevedi/git/SpringBootJDBC/src/main/java/policy/admin/model/Policy.java
+/Users/dwevedi/git/SpringBootJDBC/src/main/java/policy/admin/dao/impl/PolicyDaoImpl.java
+/Users/dwevedi/git/SpringBootJDBC/src/main/java/policy/admin/service/PolicyService.java

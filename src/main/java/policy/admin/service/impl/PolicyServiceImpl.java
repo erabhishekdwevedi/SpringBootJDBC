@@ -25,6 +25,11 @@ public class PolicyServiceImpl implements PolicyService{
 	public List<Policy> getAllPolicies() {		
 		return policydao.getAllPolicies();
 	}
+	
+	@Override
+	public Policy getPolicyById(String id) {
+		return policydao.getPolicyById(id);
+	}
 
 	
 

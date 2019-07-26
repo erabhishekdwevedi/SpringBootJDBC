@@ -8,5 +8,6 @@ public interface PolicyDao {
 		
 	void insertPolicy(Policy policy);
 	List<Policy> getAllPolicies();
+	Policy getPolicyById(String id);
 
 }

@@ -1,10 +1,7 @@
 package policy.admin.dao.impl;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.List;
 import java.util.Map;
 
@@ -12,13 +9,15 @@ import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BatchPreparedStatementSetter;
-import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
 import policy.admin.dao.PolicyDao;
 import policy.admin.model.Policy;
+import policy.admin.dao.impl.PolicyRowMapper;
+
 
 @Repository
 public class PolicyDaoImpl extends JdbcDaoSupport implements PolicyDao {
@@ -54,6 +53,18 @@ public class PolicyDaoImpl extends JdbcDaoSupport implements PolicyDao {
 		}
 		
 		return result;
+	}
+	
+	@Override
+	public Policy getPolicyById(String policyNumber) {
+		
+		
+		String sql = "SELECT * FROM policies.policy WHERE policyNumber = ?";
+		
+		@SuppressWarnings("unchecked")
+		Policy policy = (Policy)getJdbcTemplate().queryForObject(sql, new Object[] { policyNumber }, new BeanPropertyRowMapper(Policy.class));
+		return policy;
+		
 	}
 
 }

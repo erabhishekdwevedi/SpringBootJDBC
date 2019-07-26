@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Add Policy</title>
+<title>Policy Finder | Add Policy</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -18,7 +18,7 @@
 
 <body>
 	<div class="container-fluid">
-	<jsp:include page="policyIndexInquiry.jsp" />
+	<jsp:include page="nav.jsp" />
 		<div class="row">
 			<div class="col-md-12">
 				<h3>Add Policy</h3>
@@ -34,19 +34,19 @@
 
 					<table class="table table-borderless">
 							<tr>
-								<td><label>Enter Effective Date</label></td>
-								<td><form:input path="effectiveDate" /></td>
+								<td><label>Effective Date</label></td>
+								<td><form:input path="effectiveDate" type="date" /></td>
 							</tr>
 							<tr>
-								<td><label>Enter Policy Number</label></td>
+								<td><label>Policy Number</label></td>
 								<td><form:input path="policyNumber" /></td>
 							</tr>
 							<tr>
-								<td><label>Enter Coverage Amount</label></td>
+								<td><label>Coverage Amount</label></td>
 								<td><form:input path="coverageAmount" /></td>
 							</tr>							
 							<tr>
-								<td><label>Enter Insured Person Name</label></td>
+								<td><label>Insured Person Name</label></td>
 								<td><form:input path="insuredPerson" /></td>
 							</tr>
 							<tr>
