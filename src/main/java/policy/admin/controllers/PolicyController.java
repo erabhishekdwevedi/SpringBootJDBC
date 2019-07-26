@@ -18,21 +18,18 @@ import policy.admin.service.PolicyService;
 public class PolicyController {
 	
 	@Autowired
-	PolicyService policyService;
-	
-	 //the welcome page
-		@RequestMapping("/welcome")
+	PolicyService policyService;	
+	 
+		@RequestMapping("/index")
 		public ModelAndView firstPage() {
-			return new ModelAndView("welcome");
+			return new ModelAndView("index");
 		}
-
-	    //show the add Policy form and also pass an empty backing bean object to store the form field values
+	    
 		@RequestMapping(value = "/addNewPolicy", method = RequestMethod.GET)
 		public ModelAndView show() {
 			return new ModelAndView("addPolicy", "policy", new Policy());
 		}
-
-	    //Get the form field vaues which are populated using the backing bean and store it in db
+	    
 		@RequestMapping(value = "/addNewPolicy", method = RequestMethod.POST)
 		public ModelAndView processRequest(@ModelAttribute("policy") Policy policy) {
 			policyService.insertPolicy(policy);
@@ -42,7 +39,6 @@ public class PolicyController {
 			return model;
 		}
 
-	    //show all policies saved in db
 		@RequestMapping("/getPolicies")
 		public ModelAndView getPolicies() {
 			List<Policy> policies = policyService.getAllPolicies();

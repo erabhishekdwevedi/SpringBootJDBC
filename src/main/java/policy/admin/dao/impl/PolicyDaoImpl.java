@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -32,8 +33,8 @@ public class PolicyDaoImpl extends JdbcDaoSupport implements PolicyDao {
 
 	@Override
 	public void insertPolicy(Policy policy) {
-		String sql = "INSERT INTO policy " + "(policyNumber, insuredPerson) VALUES (?, ?)";
-		getJdbcTemplate().update(sql, new Object[] { policy.getPolicyNumber(), policy.getInsuredPerson() });
+		String sql = "INSERT INTO policy " + "(effectiveDate, policyNumber, coverageAmount, insuredPerson) VALUES (?,?,?,?)";
+		getJdbcTemplate().update(sql, new Object[] { policy.getEffectiveDate(), policy.getPolicyNumber(), policy.getCoverageAmount(), policy.getInsuredPerson() });
 
 	}
 
@@ -45,8 +46,10 @@ public class PolicyDaoImpl extends JdbcDaoSupport implements PolicyDao {
 		List<Policy> result = new ArrayList<Policy>();
 		for(Map<String, Object> row:rows){
 			Policy policy = new Policy();
+			policy.setEffectiveDate((String)row.get("effectiveDate"));
 			policy.setPolicyNumber((String)row.get("policyNumber"));
-			policy.setInsuredPerson((String)row.get("insuredPerson"));
+			policy.setCoverageAmount((String)row.get("coverageAmount"));
+			policy.setInsuredPerson((String)row.get("insuredPerson"));		
 			result.add(policy);
 		}
 		

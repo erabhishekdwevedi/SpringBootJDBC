@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="container-fluid">
-	<jsp:include page="policyIndexInquiry.jsp" />
+	<jsp:include page="menu.jsp" />
 
 	<div class="row">
 		<div class="col-md-12">
@@ -32,9 +32,10 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>	
-						<th>Enter Effective Date</th>				
+						<th>Effective Date</th>				
 						<th>Policy Number</th>
-						
+						<th>Coverage Amount</th>				
+						<th>Insured Person Name</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -42,8 +43,10 @@
 
 						<tr class="tr_policyrow">
 							<td >${listValue.effectiveDate}</td>
+							<td >${listValue.policyNumber}</td>							
+							<td>${listValue.coverageAmount}</td>							
+							<td>${listValue.insuredPerson}</td>
 							
-							<td>${listValue.policyNumber}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -51,23 +54,7 @@
 
 		</div>
 	</div>
-	
-	<div class="row">
-		<div class="col-md-12">
-			<button id="btn_showdetails" class="btn btn-primary" disabled> Show Details</button>
-		</div>
-	</div>
-
 
 </div>
 </body>
 </html>
-
-<script>
-
-  $(".tr_policyrow").click(function(){
-    $("#btn_showdetails").removeAttr('disabled');  
-    
-  });
-  
-</script>

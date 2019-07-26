@@ -1,10 +1,27 @@
 package policy.admin.model;
 
+import java.sql.Date;
+
 public class Policy {
 	
-	private String policyNumber;
+	private String effectiveDate;
+	private  String policyNumber;
+	private String coverageAmount;
 	private  String insuredPerson;
 	
+	
+	public String getEffectiveDate() {
+		return effectiveDate;
+	}
+	public void setEffectiveDate(String effectiveDate) {
+		this.effectiveDate = effectiveDate;
+	}
+	public String getCoverageAmount() {
+		return coverageAmount;
+	}
+	public void setCoverageAmount(String coverageAmount) {
+		this.coverageAmount = coverageAmount;
+	}
 	public String getPolicyNumber() {
 		return policyNumber;
 	}
@@ -20,7 +37,7 @@ public class Policy {
 	
 	@Override
 	public String toString() {
-		return "Policy [policyNumber=" + policyNumber + ", insuredPerson=" + insuredPerson + "]";
+		return "Policy [effectiveDate=" + effectiveDate + ",policyNumber=" + policyNumber + ",coverageAmount=" + coverageAmount + ",insuredPerson=" + insuredPerson + "]";
 	}
 	
 

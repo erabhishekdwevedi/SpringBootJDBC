@@ -1,0 +1,24 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	padding: 10px;
+	
+}
+
+.table{
+	background: #eee;
+}
+.section {
+	margin: 20px 0px;
+}
+
+header {
+	margin-bottom: 30px;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+	color: #ffffff;
+}
